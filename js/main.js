@@ -94,8 +94,9 @@ class LandingPage {
         this.renderProfile();
         this.renderSocials();
         this.renderLinks();
-        this.setupEventListeners();
         this.updateAnalyticsDisplay();
+        // Setup event listeners after DOM is populated
+        setTimeout(() => this.setupEventListeners(), 100);
     }
 
     renderProfile() {
@@ -190,28 +191,24 @@ class LandingPage {
     }
 
     setupEventListeners() {
-        // Theme toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-                localStorage.setItem('theme',
-                    document.body.classList.contains('dark-theme') ? 'dark' : 'light'
-                );
-            });
-        }
-
         // Share button
         const shareBtn = document.querySelector('.share-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', () => this.share());
         }
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-        }
+        // Mouse tracking for glow effect on link buttons
+        const linkButtons = document.querySelectorAll('.link-btn');
+        linkButtons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                btn.style.setProperty('--mouse-x', `${x}%`);
+                btn.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
     }
 
     async share() {
