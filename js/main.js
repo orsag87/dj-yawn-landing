@@ -74,7 +74,8 @@ const CONFIG = {
         {
             title: 'Bookings',
             url: 'mailto:bookings@djyawn.com',
-            icon: '📧' // Using emoji as icon
+            icon: 'images/icons/icon-63.png',
+            flip: true // Flip this icon for variation
         }
     ]
 };
@@ -163,7 +164,12 @@ class LandingPage {
             img.style.width = '100%';
             img.style.height = '100%';
             img.style.objectFit = 'cover';
-            img.style.borderRadius = '8px';
+
+            // Apply flip if specified
+            if (linkData.flip) {
+                img.style.transform = 'scaleX(-1)';
+            }
+
             icon.appendChild(img);
         } else {
             // It's an emoji
