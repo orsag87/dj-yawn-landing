@@ -215,55 +215,6 @@ class LandingPage {
                 btn.style.setProperty('--mouse-y', `${y}%`);
             });
         });
-
-        // Global parallax effect
-        this.setupParallax();
-    }
-
-    setupParallax() {
-        const container = document.querySelector('.container');
-        const profileImage = document.querySelector('.profile-image');
-        const socialIcons = document.querySelectorAll('.social-icon');
-        const linkButtons = document.querySelectorAll('.link-btn');
-
-        document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-
-            // Calculate parallax offset (stronger movement)
-            const moveX = (clientX - centerX) / 30;
-            const moveY = (clientY - centerY) / 30;
-
-            // Profile image parallax (medium strength)
-            if (profileImage) {
-                profileImage.style.transform = `scale(1.05) translate(${moveX * 0.5}px, ${moveY * 0.5}px)`;
-            }
-
-            // Social icons parallax (light strength)
-            socialIcons.forEach((icon, index) => {
-                const delay = index * 0.1;
-                icon.style.transform = `translate(${moveX * (0.3 + delay)}px, ${moveY * (0.3 + delay)}px)`;
-            });
-
-            // Link buttons parallax (subtle strength)
-            linkButtons.forEach((btn, index) => {
-                const delay = index * 0.05;
-                const currentTransform = btn.style.transform || '';
-
-                // Preserve hover state transforms
-                if (currentTransform.includes('scale')) {
-                    const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
-                    const translateYMatch = currentTransform.match(/translateY\([^)]+\)/);
-                    const scale = scaleMatch ? scaleMatch[0] : '';
-                    const translateY = translateYMatch ? translateYMatch[0] : '';
-
-                    btn.style.transform = `${translateY} ${scale} translate(${moveX * (0.2 + delay)}px, ${moveY * (0.1 + delay)}px)`;
-                } else {
-                    btn.style.transform = `translate(${moveX * (0.2 + delay)}px, ${moveY * (0.1 + delay)}px)`;
-                }
-            });
-        });
     }
 
     async share() {
