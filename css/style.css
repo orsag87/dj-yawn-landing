@@ -34,6 +34,24 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
+}
+
+/* Noise texture background */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/backgrounds/noise-1.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
 }
 
 /* ==========================================
@@ -190,10 +208,11 @@ body {
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--accent);
+    border: 4px solid var(--accent);
     filter: drop-shadow(0 0 30px rgba(157, 78, 221, 0.6));
-    transition: all 0.3s ease;
+    transition: transform 0.1s ease-out;
     animation: logoGlow 2s ease-in-out infinite;
+    will-change: transform;
 }
 
 @keyframes logoGlow {
@@ -237,20 +256,24 @@ body {
     width: 50px;
     height: 50px;
     background: transparent;
-    border: 2px solid var(--accent);
+    border: 3px solid var(--accent);
+    border-radius: 12px;
     color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.1s ease-out;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.2);
+    will-change: transform;
 }
 
 .social-icon:hover {
     background: var(--accent);
     color: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+    box-shadow:
+        0 0 30px rgba(157, 78, 221, 0.6),
+        0 5px 20px rgba(157, 78, 221, 0.4);
 }
 
 .social-icon svg {
@@ -275,18 +298,24 @@ body {
 .link-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 18px 25px;
     background: rgba(0, 0, 0, 0.95);
-    border: 2px solid var(--accent);
+    border: 3px solid var(--accent);
+    border-radius: 40px;
     color: var(--fg);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 400;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     letter-spacing: 0.05em;
     cursor: pointer;
+    box-shadow:
+        0 0 20px rgba(157, 78, 221, 0.3),
+        inset 0 0 20px rgba(157, 78, 221, 0.05);
+    will-change: transform;
 }
 
 /* Glow effect on hover */
@@ -316,26 +345,28 @@ body {
 }
 
 .link-btn:hover {
-    background: rgba(157, 78, 221, 0.1);
+    background: rgba(157, 78, 221, 0.15);
     border-color: var(--accent-bright);
-    transform: translateX(5px);
-    box-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 0 40px rgba(157, 78, 221, 0.6),
+        0 0 80px rgba(157, 78, 221, 0.3),
+        inset 0 0 30px rgba(157, 78, 221, 0.1);
 }
 
 .link-btn:active {
-    transform: translateX(3px);
+    transform: translateY(0px) scale(0.98);
 }
 
 /* Link Button Icon */
 .link-icon {
     width: 40px;
     height: 40px;
-    margin-right: 20px;
-    flex-shrink: 0;
+    position: absolute;
+    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     z-index: 1;
 }
 
@@ -349,9 +380,10 @@ body {
 /* Link Button Text */
 .link-text {
     flex: 1;
-    text-align: left;
+    text-align: center;
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 /* Divider Text */
