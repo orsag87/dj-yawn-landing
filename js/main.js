@@ -54,7 +54,7 @@ const CONFIG = {
         },
         {
             title: "Grab 'Sleepy Song Starters' for FREE",
-            url: 'https://www.dropbox.com/l/AADBoe0wjOk5zAf-T5Pzdr3Jgx4wetcQcL8',
+            url: 'https://www.dropbox.com/t/u6qnz9vs0STZOyPA',
             icon: 'images/icons/icon-77.png'
         },
         {
