@@ -68,7 +68,7 @@ const CONFIG = {
         },
         {
             title: 'MERCH',
-            url: 'https://members.producerdojo.com/muse',
+            url: 'https://shop.spotify.com/en/artist/1whCaRyOBdvIWcvHzq225q/store',
             icon: 'images/icons/icon-89.png'
         },
         {
