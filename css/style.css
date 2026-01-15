@@ -294,6 +294,12 @@ body::after {
     fill: currentColor;
 }
 
+/* Apple logo needs slightly larger size to match others */
+.social-icon[href*="music.apple.com"] svg {
+    width: 26px;
+    height: 26px;
+}
+
 /* ==========================================
    LINKS CONTAINER
    ========================================== */
