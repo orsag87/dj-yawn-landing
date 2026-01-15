@@ -8,7 +8,7 @@ const CONFIG = {
     profile: {
         username: '@dj.yawn',
         bio: 'Producer, DJ, Beatmaker. Vancouver BC.',
-        image: 'images/profile/featured-1.png' // Change to featured-2.png or featured-3.png
+        image: 'images/profile/dj-yawn-profile.png'
     },
 
     // Social Media Links
