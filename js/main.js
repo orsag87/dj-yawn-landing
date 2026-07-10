@@ -1,316 +1,348 @@
-// ==========================================
-// DJ YAWN LANDING PAGE - CONFIGURATION
-// ==========================================
+/* ============================================================
+   DJ YAWN — Cinematic Links · main.js
+   Free build: canvas atmosphere + GSAP/Lenis scroll + Web Audio drone
+   ============================================================ */
 
-// EDIT THIS CONFIG TO UPDATE YOUR PAGE
+/* -------------------- EDIT YOUR LINKS HERE -------------------- */
 const CONFIG = {
-    // Profile Information
-    profile: {
-        username: '@dj.yawn',
-        bio: 'Producer, DJ, Beatmaker. Vancouver BC.',
-        image: 'images/profile/dj-yawn-profile.png'
-    },
+  socials: [
+    { name: 'Instagram',  url: 'https://instagram.com/dj.yawn',
+      svg: '<path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.06 15.58 2.05 15.2 2.05 12s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.2 8.8 2.2 12 2.2Zm0 3.65A6.15 6.15 0 1 0 18.15 12 6.15 6.15 0 0 0 12 5.85Zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.55a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/>' },
+    { name: 'Spotify',    url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q',
+      svg: '<path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0Zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02Zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.32-1.32 9.72-.66 13.44 1.62.36.18.54.78.3 1.2Zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3Z"/>' },
+    { name: 'SoundCloud', url: 'https://soundcloud.com/djyawn',
+      svg: '<path d="M1.4 12.9c-.08 0-.14.06-.15.15l-.2 1.9.2 1.86c.01.09.07.15.15.15.08 0 .14-.06.15-.15l.23-1.86-.23-1.9c-.01-.09-.07-.15-.15-.15Zm1.3-.9c-.09 0-.16.07-.17.17l-.27 2.78.27 2.68c.01.1.08.17.17.17.09 0 .16-.07.17-.17l.3-2.68-.3-2.78c-.01-.1-.08-.17-.17-.17Zm10.3-4.02c-.3 0-.58.06-.84.16-.17-1.98-1.83-3.54-3.86-3.54-.5 0-.98.1-1.4.27-.17.06-.21.13-.21.26v10.3c0 .13.1.24.24.25h6.07A2.83 2.83 0 0 0 16 15.6a2.83 2.83 0 0 0-2.7-2.82ZM6.06 5.9c-.1 0-.18.08-.19.19l-.32 6.83.32 3.9c.01.11.09.19.19.19.1 0 .18-.08.19-.19l.36-3.9-.36-6.83c-.01-.11-.09-.19-.19-.19Zm-1.34.66c-.1 0-.18.08-.18.19l-.3 6.17.3 3.94c0 .1.08.18.18.18.1 0 .17-.08.18-.18l.34-3.94-.34-6.17c-.01-.11-.08-.19-.18-.19Zm-1.32.98c-.09 0-.16.07-.17.17l-.28 5.19.28 3.93c.01.1.08.17.17.17.09 0 .16-.07.17-.17l.32-3.93-.32-5.19c-.01-.1-.08-.17-.17-.17Z"/>' },
+    { name: 'Apple Music',url: 'https://music.apple.com/ca/artist/dj-yawn/1515997927',
+      svg: '<path d="M16.5 3.5c.4 0 .7.3.7.7v11.4a3.4 3.4 0 1 1-1.4-2.75V7.1l-6 1.3v6.5a3.4 3.4 0 1 1-1.4-2.75V6.2c0-.4.25-.7.6-.78l6.5-1.4a1 1 0 0 1 .4-.02Z"/>' }
+  ],
 
-    // Social Media Links
-    socials: [
-        {
-            platform: 'instagram',
-            url: 'https://instagram.com/dj.yawn',
-            icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/><path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`
-        },
-        {
-            platform: 'spotify',
-            url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q?si=eL_IkrS0R8y7_G4VeF8OXg',
-            icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`
-        },
-        {
-            platform: 'youtube',
-            url: 'https://youtube.com/@djyawn',
-            icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`
-        },
-        {
-            platform: 'applemusic',
-            url: 'https://music.apple.com/ca/artist/dj-yawn/1515997927',
-            icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>`
-        }
-    ],
-
-    // Main Links - EDIT HERE TO UPDATE YOUR LINKS
-    links: [
-        {
-            title: 'Follow on Insta',
-            url: 'https://instagram.com/dj.yawn',
-            icon: 'images/icons/icon-63.png' // or use emoji: '📸'
-        },
-        {
-            title: '"CzechOne Two" OUT NOW',
-            url: 'https://distrokid.com/hyperfollow/djyawn/czechone-two',
-            icon: 'images/icons/icon-74.png'
-        },
-        {
-            title: 'DJ YAWN Live @ SHAMBHALA MF',
-            url: 'https://youtu.be/GrG4k3vbe1Y?si=w3DyjUV-vF5BNiIg&t=469',
-            icon: 'images/icons/icon-76.png'
-        },
-        {
-            title: "Grab 'Sleepy Song Starters' for FREE",
-            url: 'https://www.dropbox.com/t/u6qnz9vs0STZOyPA',
-            icon: 'images/icons/icon-77.png'
-        },
-        {
-            title: 'WAVE music video',
-            url: 'https://youtu.be/wLp3BH0ySVg?si=bNESKQWZcikaRVzv',
-            icon: 'images/icons/icon-88.png'
-        },
-        {
-            type: 'divider',
-            text: 'Check it! I made Merch! ✨'
-        },
-        {
-            title: 'MERCH',
-            url: 'https://shop.spotify.com/en/artist/1whCaRyOBdvIWcvHzq225q/store',
-            icon: 'images/icons/icon-89.png'
-        },
-        {
-            title: 'Bookings',
-            url: 'mailto:bookings@djyawn.com',
-            icon: 'images/icons/icon-63.png',
-            flip: true // Flip this icon for variation
-        }
-    ]
+  // Item types: 'release' | 'link' | 'divider' | 'band'
+  stream: [
+    { type: 'link', title: 'Follow on Instagram', sub: '@dj.yawn', url: 'https://instagram.com/dj.yawn' },
+    { type: 'link', title: 'Follow on Spotify', sub: 'DJ YAWN', url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' },
+    { type: 'release', title: 'Temperature', meta: 'DJ YAWN', badge: 'OUT NOW',
+      cover: 'assets/temperature-cover.jpg?v=2',
+      canvas: 'assets/temperature-canvas.mp4',      // swap to temperature-canvas-orb.mp4 for the calmer loop
+      poster: 'assets/temperature-poster.jpg',
+      audio: 'assets/temperature-preview.mp3',
+      spotify: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' }, // TODO: paste exact Temperature track link
+    { type: 'mix', kicker: 'LATEST MIX', title: 'Shambhala Live Set', sub: 'Listen on Mixcloud', url: 'https://www.mixcloud.com/djyawn/dj-yawn-live-shambhala-music-festival-2025-deep-dub/' },
+    { type: 'video', kicker: 'WATCH', title: '"Wave" ft. PAV4N', sub: 'Music video', youtube: 'wLp3BH0ySVg' },
+    { type: 'link', title: 'Sleepy Song Starters', sub: 'Free download', url: 'https://www.dropbox.com/l/AADBoe0wjOk5zAf-T5Pzdr3Jgx4wetcQcL8', featured: true },
+    { type: 'link', title: 'MERCH', sub: 'Producer Dojo store', url: 'https://members.producerdojo.com/muse' },
+    { type: 'link', title: 'Bookings', sub: 'bookings@djyawn.com', url: 'mailto:bookings@djyawn.com' }
+  ]
 };
 
-// ==========================================
-// APPLICATION CODE
-// ==========================================
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE = window.matchMedia('(max-width: 640px)').matches;
+const arrowSVG = '<svg class="card-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
-class LandingPage {
-    constructor(config) {
-        this.config = config;
-        this.analytics = new Analytics();
-        this.init();
+/* -------------------- RENDER STREAM -------------------- */
+function render() {
+  const stream = document.getElementById('stream');
+
+  let li = 0;
+  CONFIG.stream.forEach(item => {
+    if (item.type === 'divider') {
+      const d = document.createElement('div');
+      d.className = 'divider reveal'; d.textContent = item.text;
+      stream.appendChild(d);
+      return;
     }
-
-    init() {
-        this.renderProfile();
-        this.renderSocials();
-        this.renderLinks();
-        this.updateAnalyticsDisplay();
-        // Setup event listeners after DOM is populated
-        setTimeout(() => this.setupEventListeners(), 100);
+    if (item.type === 'band') {
+      const b = document.createElement('div');
+      b.className = 'band reveal';
+      b.innerHTML = `<div class="band-img" data-parallax style="background-image:url('${item.img}')"></div>
+        <div class="band-cap">${item.cap}<small>${item.sub || ''}</small></div>`;
+      stream.appendChild(b);
+      return;
     }
-
-    renderProfile() {
-        const { username, bio, image } = this.config.profile;
-
-        document.getElementById('profile-image').src = image;
-        document.getElementById('profile-image').alt = username;
-        document.getElementById('profile-username').textContent = username;
-        document.getElementById('profile-bio').textContent = bio;
+    if (item.type === 'release') {
+      const media = REDUCED
+        ? `<img class="phone-media" src="${item.poster}" alt="${item.title} canvas">`
+        : `<video class="phone-media" autoplay muted loop playsinline preload="metadata" poster="${item.poster}"><source src="${item.canvas}" type="video/mp4"></video>`;
+      const wrap = document.createElement('div');
+      wrap.className = 'release reveal';
+      wrap.innerHTML =
+        `<div class="phone">
+          ${media}
+          <span class="release-badge">${item.badge || ''}</span>
+          <div class="np">
+            <img class="np-cover" src="${item.cover}" alt="${item.title} cover">
+            <span class="np-info"><span class="np-title">${item.title}</span><span class="np-meta">${item.meta || ''}</span></span>
+            <button class="np-play" type="button" aria-label="Play preview of ${item.title}">
+              <svg class="ic-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="ic-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+            </button>
+          </div>
+          <div class="np-bar"><i></i></div>
+          <audio class="np-audio" src="${item.audio}" preload="none"></audio>
+        </div>
+        <a class="release-spotify" href="${item.spotify}" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0Zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02Zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.32-1.32 9.72-.66 13.44 1.62.36.18.54.78.3 1.2Zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3Z"/></svg>
+          OPEN ON SPOTIFY</a>`;
+      stream.appendChild(wrap);
+      return;
     }
-
-    renderSocials() {
-        const container = document.getElementById('social-icons');
-
-        this.config.socials.forEach(social => {
-            const link = document.createElement('a');
-            link.href = social.url;
-            link.className = 'social-icon';
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.setAttribute('aria-label', social.platform);
-            link.innerHTML = social.icon;
-
-            link.addEventListener('click', () => {
-                this.analytics.trackClick(social.platform);
-            });
-
-            container.appendChild(link);
-        });
+    if (item.type === 'mix') {
+      const m = document.createElement('a');
+      m.className = 'mixcard reveal';
+      m.href = item.url; m.target = '_blank'; m.rel = 'noopener noreferrer';
+      m.innerHTML =
+        `<span class="mixcard-play"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+         <span class="mixcard-body"><span class="mix-kicker">${item.kicker || 'LATEST MIX'}</span><span class="mixcard-title">${item.title}</span><span class="mix-sub">${item.sub || ''}</span></span>
+         <span class="mixcard-tag">MIXCLOUD ↗</span>`;
+      stream.appendChild(m);
+      return;
     }
-
-    renderLinks() {
-        const container = document.getElementById('links-container');
-
-        this.config.links.forEach(item => {
-            if (item.type === 'divider') {
-                const divider = document.createElement('div');
-                divider.className = 'divider-text';
-                divider.textContent = item.text;
-                container.appendChild(divider);
-            } else {
-                const link = this.createLinkButton(item);
-                container.appendChild(link);
-            }
-        });
+    if (item.type === 'video') {
+      const v = document.createElement('div');
+      v.className = 'video reveal';
+      v.innerHTML =
+        `<div class="mix-head"><span class="mix-kicker">${item.kicker || 'WATCH'}</span><span class="mix-title">${item.title}</span><span class="mix-sub">${item.sub || ''}</span></div>
+         <button class="video-facade" data-yt="${item.youtube}" type="button" aria-label="Play ${item.title}">
+           <img class="video-thumb" src="https://i.ytimg.com/vi/${item.youtube}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.youtube}/hqdefault.jpg'" alt="">
+           <span class="video-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+         </button>`;
+      stream.appendChild(v);
+      return;
     }
-
-    createLinkButton(linkData) {
-        const link = document.createElement('a');
-        link.href = linkData.url;
-        link.className = 'link-btn';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-
-        // Create icon element
-        const icon = document.createElement('div');
-        icon.className = 'link-icon';
-
-        // Check if icon is emoji or image path
-        if (linkData.icon.includes('/') || linkData.icon.includes('.')) {
-            const img = document.createElement('img');
-            img.src = linkData.icon;
-            img.alt = '';
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-
-            // Apply flip if specified
-            if (linkData.flip) {
-                img.style.transform = 'scaleX(-1)';
-            }
-
-            icon.appendChild(img);
-        } else {
-            // It's an emoji
-            icon.textContent = linkData.icon;
-            icon.style.fontSize = '24px';
-            icon.style.display = 'flex';
-            icon.style.alignItems = 'center';
-            icon.style.justifyContent = 'center';
-        }
-
-        // Create text element
-        const text = document.createElement('span');
-        text.className = 'link-text';
-        text.textContent = linkData.title;
-
-        link.appendChild(icon);
-        link.appendChild(text);
-
-        // Track click
-        link.addEventListener('click', () => {
-            this.analytics.trackClick(linkData.title);
-        });
-
-        return link;
+    if (item.type === 'setvideo') {
+      const sv = document.createElement('div');
+      sv.className = 'video reveal';
+      sv.innerHTML =
+        `<div class="mix-head"><span class="mix-kicker">${item.kicker || 'WATCH'}</span><span class="mix-title">${item.title}</span><span class="mix-sub">${item.sub || ''}</span></div>
+         <button class="video-facade" data-src="${item.src}" type="button" aria-label="Play ${item.title}">
+           <img class="video-thumb" src="${item.poster}" alt="">
+           <span class="video-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+         </button>`;
+      stream.appendChild(sv);
+      return;
     }
-
-    setupEventListeners() {
-        // Share button
-        const shareBtn = document.querySelector('.share-btn');
-        if (shareBtn) {
-            shareBtn.addEventListener('click', () => this.share());
-        }
-
-        // Mouse tracking for glow effect on link buttons
-        const linkButtons = document.querySelectorAll('.link-btn');
-        linkButtons.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-                btn.style.setProperty('--mouse-x', `${x}%`);
-                btn.style.setProperty('--mouse-y', `${y}%`);
-            });
-        });
+    if (item.type === 'subscribe') {
+      const s = document.createElement('div');
+      s.className = 'subscribe reveal';
+      s.innerHTML =
+        `<span class="sub-kicker">${item.kicker || 'STAY IN THE LOOP'}</span>
+         <span class="sub-copy">${item.copy || ''}</span>
+         <form class="sub-form" novalidate>
+           <input class="sub-email" type="email" inputmode="email" placeholder="you@email.com" aria-label="Email address" required>
+           <button class="sub-btn" type="submit">JOIN</button>
+         </form>
+         <span class="sub-note" hidden>You're on the list ✦</span>`;
+      stream.appendChild(s);
+      return;
     }
+    // link
+    li++;
+    const a = document.createElement('a');
+    a.className = 'card reveal' + (item.featured ? ' is-featured' : '');
+    a.href = item.url;
+    if (!item.url.startsWith('mailto:')) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    a.innerHTML =
+      `<span class="card-body"><span class="card-title">${item.title}</span><span class="card-sub">${item.sub || ''}</span></span>
+       ${arrowSVG}`;
+    stream.appendChild(a);
+  });
 
-    async share() {
-        const shareData = {
-            title: `${this.config.profile.username} - Links`,
-            text: this.config.profile.bio,
-            url: window.location.href
-        };
-
-        try {
-            if (navigator.share) {
-                await navigator.share(shareData);
-            } else {
-                // Fallback: copy to clipboard
-                await navigator.clipboard.writeText(window.location.href);
-                alert('Link copied to clipboard!');
-            }
-        } catch (err) {
-            console.log('Share failed:', err);
-        }
-    }
-
-    updateAnalyticsDisplay() {
-        const totalClicks = this.analytics.getTotalClicks();
-        document.getElementById('click-count').textContent = totalClicks.toLocaleString();
-    }
+  // mouse-tracking glow
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
 }
 
-// ==========================================
-// ANALYTICS CLASS
-// ==========================================
+/* -------------------- RELEASE MODULE (canvas + preview player) -------------------- */
+function wireReleases() {
+  document.querySelectorAll('.release').forEach(rel => {
+    const audio = rel.querySelector('.np-audio');
+    const btn = rel.querySelector('.np-play');
+    const bar = rel.querySelector('.np-bar i');
+    const video = rel.querySelector('video.phone-media');
 
-class Analytics {
-    constructor() {
-        this.storageKey = 'djyawn_analytics';
-        this.data = this.loadData();
+    // Canvas plays only while on screen (autoplay-safe, saves battery)
+    if (video && 'IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => e.isIntersecting ? video.play().catch(() => {}) : video.pause());
+      }, { threshold: 0.25 }).observe(video);
     }
 
-    loadData() {
-        try {
-            const stored = localStorage.getItem(this.storageKey);
-            return stored ? JSON.parse(stored) : { clicks: {}, totalClicks: 0 };
-        } catch (e) {
-            return { clicks: {}, totalClicks: 0 };
-        }
-    }
+    if (!audio || !btn) return;
 
-    saveData() {
-        try {
-            localStorage.setItem(this.storageKey, JSON.stringify(this.data));
-        } catch (e) {
-            console.error('Failed to save analytics data:', e);
-        }
-    }
-
-    trackClick(linkName) {
-        // Update individual link clicks
-        if (!this.data.clicks[linkName]) {
-            this.data.clicks[linkName] = 0;
-        }
-        this.data.clicks[linkName]++;
-
-        // Update total clicks
-        this.data.totalClicks++;
-
-        this.saveData();
-
-        // Update display
-        document.getElementById('click-count').textContent = this.data.totalClicks.toLocaleString();
-    }
-
-    getTotalClicks() {
-        return this.data.totalClicks;
-    }
-
-    getClicksByLink() {
-        return this.data.clicks;
-    }
-
-    reset() {
-        this.data = { clicks: {}, totalClicks: 0 };
-        this.saveData();
-    }
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        document.querySelectorAll('.np-audio').forEach(a => { if (a !== audio) a.pause(); });
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener('play',  () => { rel.classList.add('is-playing'); btn.setAttribute('aria-label', 'Pause preview'); });
+    audio.addEventListener('pause', () => { rel.classList.remove('is-playing'); btn.setAttribute('aria-label', 'Play preview'); });
+    audio.addEventListener('ended', () => { rel.classList.remove('is-playing'); if (bar) bar.style.width = '0%'; });
+    audio.addEventListener('timeupdate', () => {
+      if (bar && audio.duration) bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+  });
 }
 
-// ==========================================
-// INITIALIZE APP
-// ==========================================
+/* -------------------- VIDEO PREVIEW (YouTube facade — click to play) -------------------- */
+function wireVideos() {
+  document.querySelectorAll('.video-facade').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const src = btn.getAttribute('data-src');
+      const id = btn.getAttribute('data-yt');
+      const frame = document.createElement('div');
+      frame.className = 'mix-frame';
+      frame.innerHTML = src
+        ? `<video src="${src}" controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video>`
+        : `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      btn.replaceWith(frame);
+    });
+  });
+}
 
+/* -------------------- MAILING LIST (front-end only — connect a provider to go live) -------------------- */
+function wireSubscribe() {
+  document.querySelectorAll('.subscribe').forEach(box => {
+    const form = box.querySelector('.sub-form');
+    const note = box.querySelector('.sub-note');
+    const input = box.querySelector('.sub-email');
+    if (!form) return;
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!input.checkValidity()) { input.reportValidity(); return; }
+      // TODO: connect a provider — point form.action at your Mailchimp / Beehiiv / ConvertKit
+      // embedded-form endpoint (method="post") and submit, OR POST input.value to your list API.
+      // Until then this only confirms locally — no email is actually stored.
+      form.hidden = true;
+      note.hidden = false;
+    });
+  });
+}
+
+/* -------------------- PARTICLE FIELD -------------------- */
+function particles() {
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let w, h, dpr, parts = [], scrollFactor = 0, raf;
+
+  const COUNT = REDUCED ? 0 : (MOBILE ? 40 : 90);
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.width = Math.floor(innerWidth * dpr);
+    h = canvas.height = Math.floor(innerHeight * dpr);
+    canvas.style.width = innerWidth + 'px';
+    canvas.style.height = innerHeight + 'px';
+  }
+  function make() {
+    parts = [];
+    for (let i = 0; i < COUNT; i++) {
+      parts.push({
+        x: Math.random() * w, y: Math.random() * h,
+        r: (Math.random() * 1.6 + 0.4) * dpr,
+        vy: (Math.random() * 0.25 + 0.08) * dpr,
+        drift: (Math.random() - 0.5) * 0.2 * dpr,
+        a: Math.random() * 0.5 + 0.15,
+        tw: Math.random() * Math.PI * 2,
+        blue: Math.random() > 0.7
+      });
+    }
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    const speed = 1 + scrollFactor * 2.2; // descend faster as you go deeper
+    for (const p of parts) {
+      p.y -= p.vy * speed;
+      p.x += p.drift;
+      p.tw += 0.02;
+      if (p.y < -8) { p.y = h + 8; p.x = Math.random() * w; }
+      if (p.x < -8) p.x = w + 8; if (p.x > w + 8) p.x = -8;
+      const alpha = p.a * (0.6 + 0.4 * Math.sin(p.tw));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.blue ? `rgba(123,150,210,${alpha})` : `rgba(220,230,240,${alpha})`;
+      ctx.shadowBlur = 6 * dpr; ctx.shadowColor = p.blue ? 'rgba(73,102,159,0.8)' : 'rgba(255,255,255,0.5)';
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+    raf = requestAnimationFrame(frame);
+  }
+
+  resize(); make();
+  if (COUNT > 0) frame();
+  addEventListener('resize', () => { resize(); make(); });
+  return { setScroll: v => { scrollFactor = v; } };
+}
+
+/* -------------------- SCROLL CHOREOGRAPHY -------------------- */
+function scroll(field) {
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis smooth scroll (skip if reduced motion or lib missing)
+  let lenis = null;
+  const Lenis = window.Lenis || (window.lenis && window.lenis.default);
+  if (!REDUCED && typeof Lenis === 'function') {
+    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // feed scroll depth to particle field
+  ScrollTrigger.create({
+    start: 0, end: 'max',
+    onUpdate: self => field && field.setScroll(self.progress)
+  });
+
+  // reveal on enter
+  gsap.utils.toArray('.reveal').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el, start: 'top 88%',
+      onEnter: () => el.classList.add('in'),
+      once: true
+    });
+  });
+
+  // hero parallax + fade
+  gsap.to('.hero-inner', {
+    yPercent: -18, opacity: 0.25, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  // letterbox recede as you leave the hero
+  gsap.to('.letterbox-top', { yPercent: -100, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: '40% top', scrub: true } });
+  gsap.to('.letterbox-bottom', { yPercent: 100, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: '40% top', scrub: true } });
+
+  // band photo parallax
+  gsap.utils.toArray('[data-parallax]').forEach(img => {
+    gsap.fromTo(img, { yPercent: -8 }, {
+      yPercent: 8, ease: 'none',
+      scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+
+  // back to surface
+  document.querySelector('.to-surface')?.addEventListener('click', () => {
+    if (lenis) lenis.scrollTo(0, { duration: 1.6 });
+    else window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
+  });
+}
+
+/* -------------------- BOOT -------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-    new LandingPage(CONFIG);
-
-    // Add loading animation
-    document.body.classList.add('loading');
+  render();
+  wireReleases();
+  wireVideos();
+  wireSubscribe();
+  const field = particles();
+  scroll(field);
 });
-
-// Console message
-console.log('%c🎵 DJ YAWN Landing Page', 'font-size: 20px; font-weight: bold;');
-console.log('%cBuilt with Claude Code', 'color: #888;');
