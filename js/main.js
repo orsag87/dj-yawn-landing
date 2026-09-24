@@ -1,6 +1,6 @@
 /* ============================================================
    DJ YAWN — Cinematic Links · main.js
-   Free build: canvas atmosphere + GSAP/Lenis scroll + Web Audio drone
+   Plain build: GSAP/Lenis scroll, no atmosphere layer
    ============================================================ */
 
 /* -------------------- EDIT YOUR LINKS HERE -------------------- */
@@ -18,19 +18,20 @@ const CONFIG = {
 
   // Item types: 'release' | 'link' | 'divider' | 'band'
   stream: [
-    { type: 'link', title: 'Follow on Instagram', sub: '@dj.yawn', url: 'https://instagram.com/dj.yawn' },
-    { type: 'link', title: 'Follow on Spotify', sub: 'DJ YAWN', url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' },
-    { type: 'release', title: 'Temperature', meta: 'DJ YAWN', badge: 'OUT NOW',
+    { type: 'release', title: 'Temperature', meta: 'DJ YAWN · Somastate Records', badge: 'Out now',
       cover: 'assets/temperature-cover.jpg?v=2',
-      canvas: 'assets/temperature-canvas.mp4',      // swap to temperature-canvas-orb.mp4 for the calmer loop
+      canvas: 'assets/temperature-canvas.mp4',
       poster: 'assets/temperature-poster.jpg',
       audio: 'assets/temperature-preview.mp3',
-      spotify: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' }, // TODO: paste exact Temperature track link
-    { type: 'mix', kicker: 'LATEST MIX', title: 'Shambhala Live Set', sub: 'Listen on Mixcloud', url: 'https://www.mixcloud.com/djyawn/dj-yawn-live-shambhala-music-festival-2025-deep-dub/' },
-    { type: 'video', kicker: 'WATCH', title: '"Wave" ft. PAV4N', sub: 'Music video', youtube: 'wLp3BH0ySVg' },
+      spotify: 'https://open.spotify.com/album/3vDgkxDTzrkMoVJRkJVJuW' },
+    { type: 'link', title: 'Yawnin\' EP', sub: 'Out October 23 · Nailz first, October 16', url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' },
+    { type: 'link', title: 'CzechOne Two', sub: 'Single · Somastate Records', url: 'https://open.spotify.com/album/3hoEZ8bBxTHx1hzBEbI93V' },
+    { type: 'mix', kicker: 'Live set', title: 'Shambhala 2025', sub: 'Listen on Mixcloud', url: 'https://www.mixcloud.com/djyawn/dj-yawn-live-shambhala-music-festival-2025-deep-dub/' },
+    { type: 'video', kicker: 'Video', title: '"Wave" ft. PAV4N', sub: 'Music video', youtube: 'wLp3BH0ySVg' },
     { type: 'link', title: 'Sleepy Song Starters', sub: 'Free download', url: 'https://www.dropbox.com/l/AADBoe0wjOk5zAf-T5Pzdr3Jgx4wetcQcL8', featured: true },
-    { type: 'link', title: 'MERCH', sub: 'Producer Dojo store', url: 'https://members.producerdojo.com/muse' },
-    { type: 'link', title: 'Bookings', sub: 'bookings@djyawn.com', url: 'mailto:bookings@djyawn.com' }
+    { type: 'link', title: 'Press kit', sub: 'epk.djyawn.com', url: 'https://epk.djyawn.com' },
+    { type: 'link', title: 'Bookings', sub: 'bookings@djyawn.com', url: 'mailto:bookings@djyawn.com' },
+    { type: 'link', title: 'Merch', sub: 'Producer Dojo store', url: 'https://members.producerdojo.com/muse' }
   ]
 };
 
@@ -228,6 +229,7 @@ function wireSubscribe() {
 /* -------------------- PARTICLE FIELD -------------------- */
 function particles() {
   const canvas = document.getElementById('particles');
+  if (!canvas) return null;
   const ctx = canvas.getContext('2d');
   let w, h, dpr, parts = [], scrollFactor = 0, raf;
 
