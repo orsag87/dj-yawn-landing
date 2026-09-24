@@ -455,3 +455,9 @@ main { position: relative; z-index: 2; }
   .scroll-cue, #grain { animation: none; }
   .caustic, .rays { animation: none; }
 }
+
+/* 2026 polish: bigger mark, clearer line */
+.hero-avatar { width: 132px; height: 132px; }
+.hero-logo { width: min(380px, 80vw); }
+.hero-tagline { font-size: 14px; color: var(--ink-1, #ecebe7); }
+.hero-meta { font-size: 12px; }
