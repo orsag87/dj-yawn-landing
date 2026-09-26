@@ -26,7 +26,7 @@ const CONFIG = {
       spotify: 'https://open.spotify.com/album/3vDgkxDTzrkMoVJRkJVJuW' },
     { type: 'link', title: 'Yawnin\' EP', sub: 'Out Oct 23', url: 'https://open.spotify.com/artist/1whCaRyOBdvIWcvHzq225q' },
     { type: 'link', title: 'CzechOne Two', sub: 'Single · Somastate Records', url: 'https://open.spotify.com/album/3hoEZ8bBxTHx1hzBEbI93V' },
-    { type: 'mix', kicker: 'Live set', title: 'Live at Shambhala', sub: 'Listen on Mixcloud', url: 'https://www.mixcloud.com/djyawn/dj-yawn-live-shambhala-music-festival-2025-deep-dub/' },
+    { type: 'mix', kicker: 'Mix', title: 'Live at Shambhala', sub: 'Listen on Mixcloud', url: 'https://www.mixcloud.com/djyawn/dj-yawn-live-shambhala-music-festival-2025-deep-dub/' },
     { type: 'video', kicker: 'Video', title: '"Wave" ft. PAV4N', sub: 'Music video', youtube: 'wLp3BH0ySVg' },
     { type: 'link', title: 'Sleepy Song Starters', sub: 'Free download', url: 'https://www.dropbox.com/l/AADBoe0wjOk5zAf-T5Pzdr3Jgx4wetcQcL8', featured: true },
     { type: 'link', title: 'Bookings', sub: 'bookings@djyawn.com', url: 'mailto:bookings@djyawn.com' },
